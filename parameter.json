@@ -1,0 +1,13 @@
+{
+  "RoleARN": "",
+  "enable_region": ["us-east-1","us-east-2"],
+  "AllSupported": false,
+  "IncludeGlobalResourceTypes": false,
+  "ResourceTypes": "mini_config_resource_types.json",
+  "RecordingFrequency": "DAILY",
+  "DeliveryChannelName": "aws-config-delivery-channel",
+  "Frequency": "TwentyFour_Hours",
+  "TopicArn": "",
+  "NotificationEmail": "",
+  "ConfigBucket": "config-"
+}
