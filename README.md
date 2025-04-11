@@ -8,20 +8,22 @@ By default, AWS Config enables recording for more than 300 resource types in you
 
 1. 修改parameter.json, 指定需要开启的region和开启方式
 
-｜ 参数名称 | 默认值 ｜ 描述 |
-| --- | --- |--- |
-| RoleARN | <None> | 执行脚本的role的ARN，需要有config:Put*和config:PutDeliveryChannel权限 |
-| enable_region | <All> | 指定需要开启config的region, 如果不填写则是所有region都会开启，如果填写比如["us-east-1"]，则只开启指定的region |
-| AllSupported | false  | 是否开启所有config资源类型，默认为false，因为本程序主要为了实现按需开启资源类型，如果需要设置为true，则ResourceTypes则要为空 |
-| IncludeGlobalResourceTypes | False | 是否开启所有config全局资源类型 |
-| AllSupportedGlobalResourceTypes | False | 是否开启所有config全局资源类型 |
-| ResourceTypes | "mini_config_resource_types.json" | 开启的config资源类型，从json文件中读取，比如["AWS::EC2::Instance","AWS::CloudTrail::Trail"] |
-| RecordingFrequency | CONTINUOUS | 配置变更记录频率，可以设置为CONTINUOUS或者DAILY |
-| DeliveryChannelName | <Generated> | 配置变更记录的投递通道名称 |
-| Frequency | TwentyFour_Hours | 配置变更记录的投递频率, AllowedValues: "One_Hour", "Three_Hours", "Six_Hours", "Twelve_Hours", "TwentyFour_Hours" |
-| TopicArn | <None> | 配置变更记录的投递通道的SNS主题，默认没有SNS，也不允许配置，后续可以手动在控制台配置 |
-| NotificationEmail | <None> | 配置订阅SNS主题的email，接收Config推送的通知，默认没有，也不允许配置，后续可以手动在控制台配置 |
-| ConfigBucket | <None> | 保存配置变更记录的存储桶名称，如果为空则会创建一个新的存储桶 |
+
+| 参数名称                            | 默认值                               | 描述                                                                                                     |
+| ------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| RoleARN                         | <None>                            | 执行脚本的role的ARN，需要有config:Put*和config:PutDeliveryChannel权限                                              |
+| enable_region                   | <All>                             | 指定需要开启config的region, 如果不填写则是所有region都会开启，如果填写比如["us-east-1"]，则只开启指定的region             |
+| AllSupported                    | false                             | 是否开启所有config资源类型，默认为false，因为本程序主要为了实现按需开启资源类型，如果需要设置为true，则ResourceTypes则要为空                           |
+| IncludeGlobalResourceTypes      | False                             | 是否开启所有config全局资源类型                                                                                     |
+| AllSupportedGlobalResourceTypes | False                             | 是否开启所有config全局资源类型                                                                                     |
+| ResourceTypes                   | "mini_config_resource_types.json" | 开启的config资源类型，从json文件中读取，比如["AWS::EC2::Instance","AWS::CloudTrail::Trail"]                             |
+| RecordingFrequency              | CONTINUOUS                        | 配置变更记录频率，可以设置为CONTINUOUS或者DAILY                                                                        |
+| DeliveryChannelName             | <Generated>                       | 配置变更记录的投递通道名称                                                                                          |
+| Frequency                       | TwentyFour_Hours                  | 配置变更记录的投递频率, AllowedValues: "One_Hour", "Three_Hours", "Six_Hours", "Twelve_Hours", "TwentyFour_Hours" |
+| TopicArn                        | <None>                            | 配置变更记录的投递通道的SNS主题，默认没有SNS，也不允许配置，后续可以手动在控制台配置                                                          |
+| NotificationEmail               | <None>                            | 配置订阅SNS主题的email，接收Config推送的通知，默认没有，也不允许配置，后续可以手动在控制台配置                                                 |
+| ConfigBucket                    | <None>                            | 保存配置变更记录的存储桶名称，如果为空则会创建一个新的存储桶                                                                         |
+
 
 
 2. 使用方法：
