@@ -14,8 +14,7 @@ By default, AWS Config enables recording for more than 300 resource types in you
 | RoleARN                         | <None>                            | 执行脚本的role的ARN，需要有config:Put*和config:PutDeliveryChannel权限                                              |
 | enable_region                   | <All>                             | 指定需要开启config的region, 如果不填写则是所有region都会开启，如果填写比如["us-east-1"]，则只开启指定的region             |
 | AllSupported                    | false                             | 是否开启所有config资源类型，默认为false，因为本程序主要为了实现按需开启资源类型，如果需要设置为true，则ResourceTypes则要为空                           |
-| IncludeGlobalResourceTypes      | False                             | 是否开启所有config全局资源类型                                                                                     |
-| AllSupportedGlobalResourceTypes | False                             | 是否开启所有config全局资源类型                                                                                     |
+| IncludeGlobalResourceTypes      | False                             | 是否开启所有config全局资源类型     |
 | ResourceTypes                   | "mini_config_resource_types.json" | 开启的config资源类型，从json文件中读取，比如["AWS::EC2::Instance","AWS::CloudTrail::Trail"]                             |
 | RecordingFrequency              | CONTINUOUS                        | 配置变更记录频率，可以设置为CONTINUOUS或者DAILY                                                                        |
 | DeliveryChannelName             | <Generated>                       | 配置变更记录的投递通道名称                                                                                          |
@@ -27,7 +26,7 @@ By default, AWS Config enables recording for more than 300 resource types in you
 2. 使用方法：
 要运行enable_config.py，请按以下步骤操作：
 
-1. 创建并激活Python虚拟环境：
+a. 创建并激活Python虚拟环境：
 ```bash
 # 创建虚拟环境
 python3 -m venv venv
@@ -39,12 +38,12 @@ source venv/bin/activate
 # venv\Scripts\activate
  ```
 
-2. 安装依赖包：
+b. 安装依赖包：
 ```bash
 pip install -r requirements.txt
  ```
 
-3. 执行脚本：
+c. 执行脚本：
 ```bash
 python enable_config.py
  ```
